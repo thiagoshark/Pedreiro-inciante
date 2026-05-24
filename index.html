@@ -697,7 +697,7 @@
       <li><span class="ck">✓</span> Atualizações futuras inclusas</li>
     </ul>
 
-    <a href="https://pay.lowify.com.br/pedreiro-premium-upsell" class="popup-btn-yes" onclick="playKaching()">
+    <a href="https://pay.lowify.com.br/pedreiro-premium-upsell" class="popup-btn-yes">
       Sim, quero o Premium por R$ 9,90 →
     </a>
     <button class="popup-btn-no" onclick="goToBasicCheckout()">
@@ -1100,7 +1100,6 @@
   }
 
   function showUpsell() {
-    playKaching();
     document.getElementById('upsellPopup').classList.add('show');
   }
 
@@ -1114,7 +1113,6 @@
   }
 
   function goToPremiumCheckout() {
-    playKaching();
     window.location.href = 'https://pay.lowify.com.br/pedreiro-premium';
   }
 
