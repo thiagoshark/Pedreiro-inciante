@@ -710,9 +710,9 @@
       <li><span class="ck">✓</span> Atualizações futuras inclusas</li>
     </ul>
 
-    <a href="https://pay.wiapy.com/h_D52evP2s" class="popup-btn-yes">
+    <button class="popup-btn-yes" onclick="redirectWithParams('https://pay.wiapy.com/h_D52evP2s')">
       Sim, quero o Premium por R$ 9,90 →
-    </a>
+    </button>
     <button class="popup-btn-no" onclick="goToBasicCheckout()">
       Não, prefiro continuar só com o básico
     </button>
@@ -1120,13 +1120,26 @@
     document.getElementById('upsellPopup').classList.remove('show');
   }
 
+  function redirectWithParams(destination) {
+    var currentParams = window.location.search;
+    if (!currentParams) {
+      window.location.href = destination;
+      return;
+    }
+    if (destination.includes('?')) {
+      window.location.href = destination + '&' + currentParams.substring(1);
+    } else {
+      window.location.href = destination + currentParams;
+    }
+  }
+
   function goToBasicCheckout() {
     closePopup();
-    window.location.href = 'https://pay.wiapy.com/cjnN2c5aB';
+    redirectWithParams('https://pay.wiapy.com/cjnN2c5aB');
   }
 
   function goToPremiumCheckout() {
-    window.location.href = 'https://pay.wiapy.com/_jn7rLJjje';
+    redirectWithParams('https://pay.wiapy.com/_jn7rLJjje');
   }
 
   document.getElementById('upsellPopup').addEventListener('click', function(e) {
